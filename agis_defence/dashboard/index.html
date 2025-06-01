@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGIS Defence Dashboard</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React and ReactDOM with specific versions -->
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    
+    <!-- Babel with specific version -->
+    <script src="https://unpkg.com/@babel/standalone@7.22.5/babel.min.js"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        .loading {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #root {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #4B5563;
+        }
+        .error-message {
+            color: #DC2626;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #FEE2E2;
+            border-radius: 0.5rem;
+            max-width: 600px;
+        }
+    </style>
+    
+    <!-- Error handling -->
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            const rootElement = document.getElementById('root');
+            if (rootElement) {
+                rootElement.innerHTML = `
+                    <div class="error-message">
+                        <h2 style="font-weight: bold; margin-bottom: 0.5rem">Dashboard Error</h2>
+                        <p>${msg}</p>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem">
+                            Location: ${url}:${lineNo}:${columnNo}
+                        </p>
+                        ${error && error.stack ? `<pre style="font-size: 0.75rem; margin-top: 0.5rem">${error.stack}</pre>` : ''}
+                    </div>
+                `;
+            }
+            return false;
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div id="root">
+        <div class="loading">⌛</div>
+        <span style="margin-left: 1rem">Loading AGIS Defence Dashboard...</span>
+    </div>
+    
+    <!-- App JavaScript -->
+    <script type="text/babel" src="/js/app.js" defer></script>
+</body>
+</html> 
