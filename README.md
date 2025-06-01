@@ -1,6 +1,6 @@
 # AGIS
 
-GIS is an advanced security monitoring and threat detection system powered by artificial intelligence. It provides real-time system monitoring, threat detection, and automated response capabilities through an interactive web dashboard.
+AGIS is an advanced security monitoring and threat detection system powered by artificial intelligence. It provides real-time system monitoring, threat detection, and automated response capabilities through an interactive web dashboard.
 
 ## Features
 
